@@ -6,8 +6,8 @@ import SharedLayout  from './SharedLayout/SharedLayout';
 import  ProductDetails  from './ProductDetails/ProductDetails';
 
 
-const IMG_BASE_URL = 'https://image.tmdb.org/t/p/';
-const IMG_FILE_SIZE = 'w500';
+// const IMG_BASE_URL = 'https://image.tmdb.org/t/p/';
+// const IMG_FILE_SIZE = 'w500';
 
 export const App = () => {
   return (
