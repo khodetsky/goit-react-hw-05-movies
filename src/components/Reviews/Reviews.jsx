@@ -1,4 +1,4 @@
-import { useParams, NavLink } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { GET_MOVIES_RULES } from '../Api';
 import { getMovies } from '../Api';
 import { useEffect, useState} from 'react';
@@ -10,11 +10,10 @@ export const Reviews = () => {
     useEffect(() => {
         getMovies(GET_MOVIES_RULES.reviews, '', moviesId).then(res => { setReviews(res.results) })
     }, [moviesId])
-
-    if(reviews) {console.log(reviews)}
+    
     return (
         <>
-            <button><NavLink to={`/goit-react-hw-05-movies/movies/${moviesId}`}>Close reviews</NavLink></button>
+            <button><Link to={`/movies/${moviesId}`}>Close reviews</Link></button>
             <ul>
                 {reviews && (reviews.length > 0 ? (
                     reviews.map(review => (

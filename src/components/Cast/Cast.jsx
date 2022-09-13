@@ -18,7 +18,7 @@ export const Cast = () => {
 
     return (
         <>
-            <button><NavLink to={`/goit-react-hw-05-movies/movies/${moviesId}`}>Close cast</NavLink></button>
+            <button><NavLink to={`/movies/${moviesId}`}>Close cast</NavLink></button>
             <ul>
                 {actorsInfo && (
                     actorsInfo.map(actor => (
