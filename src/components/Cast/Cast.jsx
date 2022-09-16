@@ -1,7 +1,10 @@
 import { getMovies } from '../Api';
-import { useParams, NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { GET_MOVIES_RULES } from '../Api';
 import { useEffect, useState } from 'react';
+import { Button } from '../Button/Button';
+import { ButtonLink } from '../Button/Button.styled';
+import { CastGallery, CastGalleryItem, ActorName, ActorData } from './Cast.styled';
 import noPhotoImg from '../../no-image.jpg';
 
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/';
@@ -18,19 +21,21 @@ export const Cast = () => {
 
     return (
         <>
-            <button><NavLink to={`/movies/${moviesId}`}>Close cast</NavLink></button>
-            <ul>
+            <Button><ButtonLink to={`/movies/${moviesId}`}>Close cast</ButtonLink></Button>
+            <CastGallery>
                 {actorsInfo && (
                     actorsInfo.map(actor => (
-                        <li key={actor.id}>
-                            {actor.profile_path ? (<img src={`${IMG_BASE_URL}${IMG_FILE_SIZE}${actor.profile_path}`} alt={`${actor.name}`} width="100" />)
-                            : (<img src={noPhotoImg} alt={`${actor.name}`} width="100" />)}
-                            <p>{actor.name}</p>
-                            <p>{actor.character}</p>
-                        </li>
+                        <CastGalleryItem key={actor.id}>
+                            {actor.profile_path ? (<img src={`${IMG_BASE_URL}${IMG_FILE_SIZE}${actor.profile_path}`} alt={`${actor.name}`} width="100%" />)
+                            : (<img src={noPhotoImg} alt={`${actor.name}`} />)}
+                            <ActorData>
+                                <ActorName>{actor.name}</ActorName>
+                                <p>{actor.character}</p>
+                            </ActorData>
+                        </CastGalleryItem>
                     ))
                 )}
-            </ul>
+            </CastGallery>
         </>
     )
 }

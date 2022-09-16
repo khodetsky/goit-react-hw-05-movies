@@ -1,7 +1,10 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { GET_MOVIES_RULES } from '../Api';
 import { getMovies } from '../Api';
-import { useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
+import { Button } from '../Button/Button';
+import { ButtonLink } from '../Button/Button.styled';
+import { ReviewsList, ReviewsListItem, ReviewAuthor, ReviewsNotification } from './Reviews.styled';
 
 export const Reviews = () => {
     const [reviews, setReviews] = useState(null);
@@ -13,17 +16,17 @@ export const Reviews = () => {
     
     return (
         <>
-            <button><Link to={`/movies/${moviesId}`}>Close reviews</Link></button>
-            <ul>
+            <Button><ButtonLink to={`/movies/${moviesId}`}>Close reviews</ButtonLink></Button>
+            <ReviewsList>
                 {reviews && (reviews.length > 0 ? (
                     reviews.map(review => (
-                        <li key={review.id}>
-                            <p>{review.author}</p>
+                        <ReviewsListItem key={review.id}>
+                            <ReviewAuthor>Author: {review.author}</ReviewAuthor>
                             <p>{review.content}</p>
-                        </li>
+                        </ReviewsListItem>
                     ))
-                ) : (<p>This movie has no reviews</p>))}
-            </ul>
+                ) : (<ReviewsNotification>This movie has no reviews</ReviewsNotification>))}
+            </ReviewsList>
         </>
     )
 }
