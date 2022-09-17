@@ -26,7 +26,7 @@ export const Cast = () => {
                 {actorsInfo && (
                     actorsInfo.map(actor => (
                         <CastGalleryItem key={actor.id}>
-                            {actor.profile_path ? (<img src={`${IMG_BASE_URL}${IMG_FILE_SIZE}${actor.profile_path}`} alt={`${actor.name}`} width="100%" />)
+                            {actor.profile_path ? (<img src={`${IMG_BASE_URL}${IMG_FILE_SIZE}${actor.profile_path}`} alt={`${actor.name}`} width="100%"/>)
                             : (<img src={noPhotoImg} alt={`${actor.name}`} />)}
                             <ActorData>
                                 <ActorName>{actor.name}</ActorName>

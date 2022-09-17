@@ -13,8 +13,8 @@ export const MovieLink = styled(Link)`
 `;
 
 export const MoviesListStyled = styled.ul`
-    margin-left: 40px;
-    list-style: disc;
+  margin-left: 40px;
+  list-style: disc;
 `;
 
 export const MoviesListItem = styled.li`

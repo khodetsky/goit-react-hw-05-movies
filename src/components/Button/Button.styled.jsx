@@ -8,6 +8,7 @@ export const ButtonStyled = styled.div`
     margin: 10px 20px;
     border-radius: 10px;
     font-weight: 500;
+    font-size: 18px;
     cursor: pointer;
 
     :hover, :focus {
