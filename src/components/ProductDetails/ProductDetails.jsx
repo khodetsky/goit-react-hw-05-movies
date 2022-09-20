@@ -16,7 +16,8 @@ const ProductDetails = () => {
     const [movieInfo, setMovieInfo] = useState(null);
     const { moviesId } = useParams();
     const location = useLocation();
-    const backLinkHref = location.state?.from ?? "/movies";
+    const backLinkHref = location.state?.from ?? location.state;
+
 
     useEffect(() => {
             getMovies(GET_MOVIES_RULES.details, '', moviesId).then(res => { setMovieInfo(res) })
@@ -49,13 +50,13 @@ const ProductDetails = () => {
                     </MovieContainer>
                     <MovieInfoList>
                         <MovieAdditionallyListItem>
-                            <MovieAdditionallyLink to="cast" >Cast</MovieAdditionallyLink>
+                            <MovieAdditionallyLink to="cast" state={backLinkHref}>Cast</MovieAdditionallyLink>
                         </MovieAdditionallyListItem>
                         <MovieAdditionallyListItem>
-                          <MovieAdditionallyLink to="reviews">Reviews</MovieAdditionallyLink>
+                          <MovieAdditionallyLink to="reviews" state={backLinkHref}>Reviews</MovieAdditionallyLink>
                         </MovieAdditionallyListItem>
                     </MovieInfoList>
-                    <Outlet/>
+                    <Outlet />
                 </>
             )}
         </div>
